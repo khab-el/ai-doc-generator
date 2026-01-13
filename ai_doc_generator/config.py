@@ -19,7 +19,7 @@ class Settings(BaseSettings):
         ".ruff_cache",
         ".mypy_cache",
         ".yamllint",
-        "alembic.ini"
+        "alembic.ini",
         "uv.lock",
         "poetry.lock",
         ".env",

@@ -14,6 +14,8 @@ class ContentReader:
                     f.readline()
                     tail = f.read()
                     return head + "\n...TRUNCATED...\n" + tail, "truncated"
+                if size == 0:
+                    return None, "empty"
                 return f.read(), "full"
         except UnicodeDecodeError:
             return None, "binary"
