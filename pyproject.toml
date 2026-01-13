@@ -1,0 +1,59 @@
+[project]
+name = "ai-doc-generator"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [{ name = "Eldar Khabibulin", email = "exabib@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "openai>=2.15.0",
+    "pydantic-settings>=2.12.0",
+]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.14.11",
+]
+
+[tool.uv]
+package = true
+
+### Entrypoints
+
+[project.scripts]
+gen = "ai_doc_generator.main:main"
+
+### Linters
+
+[tool.lint.ruff]
+target-version = "py310"
+
+select = ["I"]
+
+fixable = ["ALL"]
+
+line-length = 120
+quote-style = "double"
+indent-width = 4
+indent-style = "space"
+skip-magic-trailing-comma = false
+line-ending = "auto"
+
+# Allow unused variables when underscore-prefixed.
+dummy-variable-rgx = "^(_+|(_+[a-zA-Z0-9_]*[a-zA-Z0-9]+?))$"
+
+[tool.ruff.lint.isort]
+force-to-top = [
+    "typing",
+    "typing_extensions",
+    "types",
+]
+known-first-party = ["ai_doc_generator", "tests"]
+section-order = [
+    "future",
+    "standard-library",
+    "third-party",
+    "first-party",
+    "local-folder",
+]
+default-section = "first-party"
